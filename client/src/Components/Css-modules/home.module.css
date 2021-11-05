@@ -1,0 +1,17 @@
+.botonera {
+  display: inline-flex;
+  justify-content: space-between;
+}
+
+.desplegables {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cardDiv {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+}
