@@ -26,6 +26,11 @@ function rootReducer(state = inicialState, action) {
         countriesDetail: action.payload,
       };
 
+    case "POST_ACTIVITY":
+      return {
+        ...state,
+      };
+
     case "FILTER_BY_CONTINENT":
       const allCountries = state.allCountries;
       const filteredCountries =

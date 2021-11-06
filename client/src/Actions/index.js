@@ -47,6 +47,14 @@ export const getCountriesById = (id) => {
   };
 };
 
+export const postActivity = (payload) => {
+  return async function (dispatch) {
+    const resp = await axios.post("http://localhost:3001/activity", payload);
+    console.log(resp);
+    return resp;
+  };
+};
+
 export const filterByContinent = (payload) => {
   return {
     type: "FILTER_BY_CONTINENT",

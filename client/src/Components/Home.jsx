@@ -2,12 +2,11 @@ import React from "react";
 import { useState, useEffect } from "react";
 import {useDispatch, useSelector} from 'react-redux';
 import { getCountries, getCountriesById, filterByContinent, sortByPopulation, sortByName } from "../Actions";
-import {Link} from 'react-router-dom';
 import Card from "./Card";
 import SearchBar from "./SearchBar";
 import Paginado from "./Paginado";
 import Header from "./Header";
-import Filtros from "./Filtros";
+// import Filtros from "./Filtros";
 
 // import './Css-modules/home.module.css'
 
@@ -18,8 +17,8 @@ export default function Home(){
 
     const dispatch = useDispatch();
     const allCountries = useSelector((state) => state.countries);
-    // const [orden, setOrden] = useState('');
-    // const [numPop, setNumPop] = useState('');   
+    const [orden, setOrden] = useState('');
+    const [numPop, setNumPop] = useState('');   
     
 
     const [currentPage, setCurrentPage] = useState(1);
@@ -33,33 +32,33 @@ export default function Home(){
         setCurrentPage(pageNumber);
     }
 
-    // useEffect(() => {
-    //     dispatch(getCountries());
-    //   }, [dispatch]);
+    useEffect(() => {
+        dispatch(getCountries());
+      }, [dispatch]);
 
     // function handleClick(e){
     //     e.preventDefault();
     //     dispatch(getCountries())
     // }
 
-    // function handleFilterByContinent(e){
-    //     e.preventDefault();
-    //     dispatch(filterByContinent(e.target.value))
-    // }
+    function handleFilterByContinent(e){
+        e.preventDefault();
+        dispatch(filterByContinent(e.target.value))
+    }
 
-    // function handleSortByPopulation(e){
-    //     e.preventDefault();
-    //     dispatch(sortByPopulation(e.target.value))
-    //     setCurrentPage(1);
-    //     setNumPop(`Ordenado ${e.target.value }`)
-    // }
+    function handleSortByPopulation(e){
+        e.preventDefault();
+        dispatch(sortByPopulation(e.target.value))
+        setCurrentPage(1);
+        setNumPop(`Ordenado ${e.target.value }`)
+    }
 
-    // function handleSortByName(e){
-    //     e.preventDefault();
-    //     dispatch(sortByName(e.target.value))
-    //     setCurrentPage(1);
-    //     setOrden(`Ordenado ${e.target.value }`)
-    // }
+    function handleSortByName(e){
+        e.preventDefault();
+        dispatch(sortByName(e.target.value))
+        setCurrentPage(1);
+        setOrden(`Ordenado ${e.target.value }`)
+    }
 
     function handleCountryById(e){
         e.preventDefault();
@@ -79,15 +78,16 @@ export default function Home(){
 
             <SearchBar/>
             
-            <Filtros/>
+           
 
             <div >
                  
-                {/* <div className="botonera">
+                <div className="botonera">
                 
                 <div className="desplegables">
                     <h3>Alphabetic Order</h3>
                         <select onChange={handleSortByName}>
+                            <option value='-'> - </option>
                             <option value='asc'>A-Z</option>
                             <option value='desc'>Z-A</option>
                         </select>
@@ -110,6 +110,7 @@ export default function Home(){
                 <div className="desplegables">
                     <h3>Population</h3>                    
                         <select onChange={handleSortByPopulation}>
+                            <option value='-'> - </option>
                             <option value='asc'>Asc</option>
                             <option value='desc'>Desc</option>
                         </select>
@@ -118,13 +119,14 @@ export default function Home(){
                 <div className="desplegables">
                     <h3>Activity</h3>    
                         <select>
+                            <option value='-'> - </option>
                             <option value='asc'>A-Z</option>
                             <option value='desc'>Z-A</option>
                         </select>
                 </div>
 
 
-                </div> */}
+                </div>
 
                     <Paginado countriesPerPage={countriesPerPage} allCountries={allCountries.length} paginado={paginado} />
                 
