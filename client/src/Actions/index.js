@@ -55,6 +55,13 @@ export const postActivity = (payload) => {
   };
 };
 
+export const filteredByActivities = (payload) => {
+  return {
+    type: "FILTER_BY_ACTIVITY",
+    payload: payload,
+  };
+};
+
 export const filterByContinent = (payload) => {
   return {
     type: "FILTER_BY_CONTINENT",

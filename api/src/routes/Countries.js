@@ -29,6 +29,12 @@ router.get("/countries", async (req, res, next) => {
     } else {
       let resp = await Country.findAll({
         attributes: ["flag", "name", "id", "continent", "population"],
+        include: [
+          {
+            model: Activity,
+            through: "country_activity",
+          },
+        ],
       });
 
       res.send(resp);

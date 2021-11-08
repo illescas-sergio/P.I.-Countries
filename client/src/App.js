@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import CardDetail from "./Components/CardDetail";
 import LandingPage from "./Components/LandingPage";
 import Home from "./Components/Home";
+import ActivityCreate from "./Components/ActivityCreate";
 
 function App() {
   return (
@@ -16,8 +17,11 @@ function App() {
           <Route path="/Home">
             <Home />
           </Route>
-          <Route path="/:id">
+          <Route exact path="/:id">
             <CardDetail />
+          </Route>
+          <Route path="/Add/Activity">
+            <ActivityCreate />
           </Route>
         </Switch>
       </div>

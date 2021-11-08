@@ -43,6 +43,29 @@ function rootReducer(state = inicialState, action) {
         countries: filteredCountries,
       };
 
+    case "FILTER_BY_ACTIVITY":
+      console.log("soy reducer 1", action.payload);
+      const countries = state.allCountries;
+      console.log("soy reducer2", countries);
+      const filteredByActivities = countries.filter((el) =>
+        el.activities
+          .map((el) => {
+            return el.name;
+          })
+          .includes(action.payload)
+      );
+
+      // countries.filter((el) =>
+      //   el.activities.map((el) => el.name === action.payload)
+      // );
+
+      console.log("soy reducer3", filteredByActivities);
+
+      return {
+        ...state,
+        countries: [...filteredByActivities],
+      };
+
     case "SORT_BY_POPULATION":
       const sortedByPopulation =
         action.payload === "asc"

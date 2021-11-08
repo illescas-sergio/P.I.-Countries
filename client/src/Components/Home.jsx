@@ -1,24 +1,23 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import {useDispatch, useSelector} from 'react-redux';
-import { getCountries, getCountriesById, filterByContinent, sortByPopulation, sortByName } from "../Actions";
+import { getCountries, getCountriesById, filterByContinent, sortByPopulation, sortByName, getActivities } from "../Actions";
+import { Link } from "react-router-dom";
 import Card from "./Card";
 import SearchBar from "./SearchBar";
 import Paginado from "./Paginado";
 import Header from "./Header";
-// import Filtros from "./Filtros";
-
-// import './Css-modules/home.module.css'
-
-
-
+import ActivityFilter from "./ActivityFilter";
 
 export default function Home(){
 
     const dispatch = useDispatch();
     const allCountries = useSelector((state) => state.countries);
+    // const allActivities = useSelector((state) => state.activities);
     const [orden, setOrden] = useState('');
-    const [numPop, setNumPop] = useState('');   
+    const [numPop, setNumPop] = useState('');
+    const [continent, setContinent] = useState('');   
+    
     
 
     const [currentPage, setCurrentPage] = useState(1);
@@ -28,22 +27,27 @@ export default function Home(){
     const indexOfFirstCountry = indexOfLastCountry - countriesPerPage //0
     const currentCountries = allCountries.slice(indexOfFirstCountry, indexOfLastCountry); 
 
+
+    console.log(currentCountries)
+
     const paginado = (pageNumber) => {
         setCurrentPage(pageNumber);
     }
 
+   
+
     useEffect(() => {
         dispatch(getCountries());
+        
+
       }, [dispatch]);
 
-    // function handleClick(e){
-    //     e.preventDefault();
-    //     dispatch(getCountries())
-    // }
-
+    
     function handleFilterByContinent(e){
         e.preventDefault();
         dispatch(filterByContinent(e.target.value))
+        setCurrentPage(1);
+        setContinent(`Ordenado ${e.target.value }`)
     }
 
     function handleSortByPopulation(e){
@@ -64,19 +68,26 @@ export default function Home(){
         e.preventDefault();
         dispatch(getCountriesById(e.target.value))
     }
-    
+
+        
 
     return(
         <div>
-            {/* <Link to= '/countries'>Link a la ruta countries</Link>
-            <h1>Algun titulo (Titulo de la página)</h1>
-            <button onClick = {handleClick}>
-                volver a cargar todos los paises
-            </button> */}
+            
 
             <Header />
 
+            
+
             <SearchBar/>
+
+
+            <div>
+                <Link to={'/Add/Activity'}> <button> Add Activity </button></Link>
+            </div>
+
+
+
             
            
 
@@ -116,24 +127,26 @@ export default function Home(){
                         </select>
                 </div>
 
-                <div className="desplegables">
-                    <h3>Activity</h3>    
-                        <select>
-                            <option value='-'> - </option>
-                            <option value='asc'>A-Z</option>
-                            <option value='desc'>Z-A</option>
-                        </select>
+               
+
+                <div>
+                    <ActivityFilter />
                 </div>
 
 
                 </div>
+
+
 
                     <Paginado countriesPerPage={countriesPerPage} allCountries={allCountries.length} paginado={paginado} />
                 
 
                 <div className="cardDiv">
+
                 {
-                    currentCountries?.map(el=> (
+                    currentCountries?.map(el=> {
+                        console.log(el)
+                        return (
                         
                         <div key={el.id}>
                             
@@ -142,7 +155,7 @@ export default function Home(){
                         </div>
                                             
                         )
-                    )
+                        })
                 }
                 </div>
             </div>

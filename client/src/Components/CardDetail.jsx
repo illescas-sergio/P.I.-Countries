@@ -11,7 +11,7 @@ export default function CardDetail(){
     const [detail, setDetail] = useState('');
 
     useEffect(()=>{
-        axios.get("http://localhost:3001/countriesById/" + id)
+        axios.get("http://localhost:3001/countriesById/"+id)
         .then((resp) => {
             setDetail(resp.data)
         })
@@ -28,7 +28,9 @@ export default function CardDetail(){
         <div> 
             <div>
             <Link to={'/Home'}> <button> HOME </button> </Link>
-            </div>       
+            </div> 
+
+                         
 
            
             <h3>{detail.name}</h3>
