@@ -137,25 +137,23 @@ export default function Home(){
                 </div>
 
 
+                    <Paginado countriesPerPage={countriesPerPage} allCountries={allCountries?.length} paginado={paginado} />
 
-                    <Paginado countriesPerPage={countriesPerPage} allCountries={allCountries.length} paginado={paginado} />
                 
 
                 <div className="cardDiv">
 
                 {
-                    currentCountries?.map(el=> {
-                        console.log(el)
-                        return (
+                    currentCountries?.length > 0 ? currentCountries.map(el=> (
                         
                         <div key={el.id}>
                             
-                                <Card onClick={handleCountryById} name={el.name} flag={el.flag} continent={el.continent} id={el.id}/>
+                                <Card  key={el.id} onClick={handleCountryById} name={el.name} flag={el.flag} continent={el.continent} id={el.id}/>
                             
                         </div>
                                             
                         )
-                        })
+                        ) : <div  className="cardDiv">No such country</div>
                 }
                 </div>
             </div>
