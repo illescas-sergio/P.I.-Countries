@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom"; 
 import { useDispatch, useSelector } from "react-redux";
 import { getCountries, postActivity } from "../Actions";
-
+import styles from "./ActivityCreate.module.css"
 
 
 function validate(input){
@@ -73,7 +73,7 @@ export default function ActivityCreate(){
         e.preventDefault();
         dispatch(postActivity(input))
         setInput({
-            countryId: "",
+            countryId: [],
             name: "",
             season: "",
             duration: "",
@@ -82,22 +82,34 @@ export default function ActivityCreate(){
         alert('Activity Added!!');
         
         
+        
+    }
+
+    console.log(input.countryId)
+
+    function handleDelete(el){
+        console.log(el)
+        
+        setInput({
+            ...input,
+            countryId: input.countryId.filter( c => c !== el)
+        })
     }
 
     
 
     return(
-        <div>
-            <Link to={'/Home'}> <button> HOME </button> </Link>
+        <div className={styles.card} >
+            <Link to={'/Home'}> <button  className={styles.button}> HOME </button> </Link>
 
-            <h2>Add Activity</h2>
+            <h2 className={styles.text}>Add Activity</h2>
 
-            <form onSubmit={handleSubmit}>
+            <form  onSubmit={handleSubmit}>
                         
 
                 <div>
-                    <label >Nombre:</label>
-                    <input type="text" name="name" value={input.name} onChange={handleChange} />
+                    <label className={styles.text} >Nombre:</label>
+                    <input className={styles.radioSpace} type="text" name="name" value={input.name} onChange={handleChange} />
                     {
                         errors.name && (
                             <p>{errors.name}</p>
@@ -107,15 +119,15 @@ export default function ActivityCreate(){
                 </div>
 
                 <div>
-                    <label >Country:
-                        <select name="countryId" onChange={handleCountryId} >
-                        <option key={-1} >Select Country</option>
+                    <label className={styles.text} >Country:
+                        <select  name="countryId" onChange={handleCountryId} >
+                        <option  defaultValue="" >Select Country</option>
                             {
                                             
                                
-                                countries?.map((el, i) =>(
+                                countries?.map((el) =>(
 
-                                    <option key={i} value={el.id} >{el.name}</option>
+                                    <option key={el.id} value={el.id} >{el.name}</option>
                                     
                                 ) 
                                 )
@@ -123,62 +135,71 @@ export default function ActivityCreate(){
                             
                         </select>
                         </label>
-
-                    
+                        
                 </div>
 
 
 
                 <div>
-                    <h3>Season:</h3>
-                    <label >Spring<input type="radio" name="season" value='spring' onChange={handleCheck}/>
+                    <h3 className={styles.textSeason}>Season:</h3>
+                    <label className={styles.text}>Spring<input className={styles.radioSpace} type="radio" name="season" value='spring' onChange={handleCheck}/>
                     </label>
-                    <label >Summer<input type="radio" name='season' value='summer' onChange={handleCheck}/>
+                    <label className={styles.text}>Summer<input className={styles.radioSpace} type="radio" name='season' value='summer' onChange={handleCheck}/>
                     </label>
-                    <label >Fall<input type="radio" name='season' value='fall' onChange={handleCheck}/>
+                    <label className={styles.text} >Fall<input className={styles.radioSpace} type="radio" name='season' value='fall' onChange={handleCheck}/>
                     </label>
-                    <label >Winter<input type="radio" name='season' value='winter' onChange={handleCheck}/>
+                    <label className={styles.text} >Winter<input className={styles.radioSpace} type="radio" name='season' value='winter' onChange={handleCheck}/>
                     </label>                     
                                                  
                                                         
                 </div>
                 <div>
-                    <label >Duration:</label>
+                <h3 className={styles.text}>Duration:</h3>
                             
-                    <label >1<input type="radio" name="duration" value='1' onChange={handleCheck}/>
+                    <label className={styles.spacing}>1<input className={styles.radioSpace} type="radio" name="duration" value='1' onChange={handleCheck}/>
                     </label>
-                    <label >2<input type="radio" name="duration" value='2' onChange={handleCheck}/>
+                    <label className={styles.spacing}>2<input className={styles.radioSpace} type="radio" name="duration" value='2' onChange={handleCheck}/>
                     </label>
-                    <label >3<input type="radio" name="duration" value='3' onChange={handleCheck}/>
+                    <label className={styles.spacing}>3<input className={styles.radioSpace} type="radio" name="duration" value='3' onChange={handleCheck}/>
                     </label>
-                    <label >4<input type="radio" name="duration" value='4' onChange={handleCheck}/>
+                    <label className={styles.spacing}>4<input className={styles.radioSpace} type="radio" name="duration" value='4' onChange={handleCheck}/>
                     </label>
-                    <label >5<input type="radio" name="duration" value='5' onChange={handleCheck}/>
+                    <label className={styles.spacing}>5<input className={styles.radioSpace} type="radio" name="duration" value='5' onChange={handleCheck}/>
                     </label>   
                         
                 </div>
                 <div>
-                    <label >Difficulty:</label>
+                <h3 className={styles.text}>Difficulty:</h3>
 
-                    <label >1<input type="radio" name="difficulty" value='1' onChange={handleCheck}/>
+                    <label className={styles.spacing}>1<input className={styles.radioSpace} type="radio" name="difficulty" value='1' onChange={handleCheck}/>
                     </label>
-                    <label >2<input type="radio" name="difficulty" value='2' onChange={handleCheck}/>
+                    <label className={styles.spacing}>2<input className={styles.radioSpace} type="radio" name="difficulty" value='2' onChange={handleCheck}/>
                     </label>
-                    <label >3<input type="radio" name="difficulty" value='3' onChange={handleCheck}/>
+                    <label className={styles.spacing}>3<input className={styles.radioSpace} type="radio" name="difficulty" value='3' onChange={handleCheck}/>
                     </label>
-                    <label >4<input type="radio" name="difficulty" value='4' onChange={handleCheck}/>
+                    <label className={styles.spacing}>4<input className={styles.radioSpace} type="radio" name="difficulty" value='4' onChange={handleCheck}/>
                     </label>
-                    <label >5<input type="radio" name="difficulty" value='5' onChange={handleCheck}/>
+                    <label className={styles.spacing}>5<input className={styles.radioSpace} type="radio" name="difficulty" value='5' onChange={handleCheck}/>
                     </label>   
                         
                 </div>
 
                 <div>
-                    <button disabled={!input.name || !input.countryId.length || !input.difficulty || !input.duration || !input.season} type="Submit" >Add!</button>
+                    <button className={styles.buttonAdd} disabled={!input.name || !input.countryId.length || !input.difficulty || !input.duration || !input.season} type="Submit" >Add!</button>
                 </div>
 
 
             </form>
+
+                
+                
+                {input.countryId.map((el) => 
+                        (<div key={el} >
+                            
+                            <button className={styles.button} onClick={(e)=>handleDelete(el)}>x  {el}</button>
+                        </div>)
+                )}
+            
 
 
 

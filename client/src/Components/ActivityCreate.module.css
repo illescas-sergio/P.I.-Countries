@@ -1,0 +1,102 @@
+.button {
+  background-image: linear-gradient(to bottom, rgb(119, 119, 119), #121313);
+  border-radius: 7px;
+
+  font-family: "Palatino Linotype", "Book Antiqua", "Palatino", serif;
+  font-style: oblique;
+  font-size: 0.8em;
+  color: #fafafa;
+  float: center;
+  padding: 8px;
+  border-left-width: medium;
+
+  flex-direction: column;
+  border: none;
+  margin-right: 5px;
+  text-decoration: none;
+  align-content: center;
+  justify-content: center;
+}
+
+.buttonAdd {
+  background-image: linear-gradient(to bottom, rgb(119, 119, 119), #121313);
+  border-radius: 7px;
+  /* text-shadow: 3px 2px 1px #9daef57a;
+      box-shadow: 6px 5px 24px #595050a3; */
+  font-family: "Palatino Linotype", "Book Antiqua", "Palatino", serif;
+  font-style: oblique;
+  font-size: 0.8em;
+  color: #fafafa;
+  float: center;
+  padding: 8px;
+  border-left-width: medium;
+  margin-top: 20px;
+
+  flex-direction: column;
+  border: none;
+  margin-right: 5px;
+  text-decoration: none;
+  align-content: center;
+  justify-content: center;
+}
+
+.button:disabled,
+button[disabled] {
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+}
+
+.divUbication {
+  display: flex;
+  justify-content: center;
+}
+
+.text {
+  color: #fafafa;
+}
+
+.textSelect {
+  margin-top: 50px;
+  color: #fafafa;
+}
+
+.textSeason {
+  color: #fafafa;
+  margin-top: 35px;
+}
+.spacing {
+  color: #fafafa;
+  margin: 20px;
+}
+
+.radioSpace {
+  margin: 5px;
+}
+
+.card {
+  margin: 0 auto;
+  background-color: rgba(33, 53, 65, 0.089);
+  color: #fafafa;
+  padding: 20px;
+  border-radius: 10px;
+
+  /* border-color: tomato;
+    border-style: solid; */
+  transition: 200ms;
+  max-width: 380px;
+  backdrop-filter: blur(8px);
+  border: solid 1px;
+}
+
+.card:hover {
+  transition: 200ms;
+  border: 3px;
+  border-color: #fafafa;
+  border-style: solid;
+}
+
+.divBorder {
+  border: solid 1px #fafafa;
+  margin-top: 20px;
+}

@@ -32,11 +32,11 @@ function rootReducer(state = inicialState, action) {
       };
 
     case "FILTER_BY_CONTINENT":
-      const allCountries = state.allCountries;
+      const countriesAll = state.allCountries;
       const filteredCountries =
         action.payload === "All"
-          ? allCountries
-          : allCountries.filter((el) => el.continent === action.payload);
+          ? countriesAll
+          : countriesAll.filter((el) => el.continent === action.payload);
 
       return {
         ...state,
@@ -54,10 +54,6 @@ function rootReducer(state = inicialState, action) {
           })
           .includes(action.payload)
       );
-
-      // countries.filter((el) =>
-      //   el.activities.map((el) => el.name === action.payload)
-      // );
 
       console.log("soy reducer3", filteredByActivities);
 

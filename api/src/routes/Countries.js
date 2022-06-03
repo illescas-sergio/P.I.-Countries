@@ -1,7 +1,6 @@
 const { Router } = require("express");
 const { conn } = require("../db.js");
 const { Country, Activity } = conn.models;
-// const { Op } = require("sequelize");
 
 const router = Router();
 
@@ -9,15 +8,8 @@ router.get("/countries", async (req, res, next) => {
   try {
     const name = req.query.name;
     if (name) {
-      let resp = await Country.findAll({
-        include: [
-          {
-            model: Activity,
-            through: "country_activity",
-          },
-        ],
-      });
-      let filteredCountry = await resp.filter((el) =>
+      let resp = await Country.findAll();
+      let filteredCountry = resp.filter((el) =>
         el.name.toLowerCase().includes(name.toLowerCase())
       );
 

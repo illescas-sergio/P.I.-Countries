@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { filteredByActivities } from "../Actions";
+import styles from "./ActivityFilter.module.css"
 
 
 
@@ -22,9 +23,7 @@ export default function ActivityFilter(){
         .then((resp) => {
             setActivities(resp.data)
         })
-        // return () => {
-        //     setActivities(null)
-        // }
+        
     },[])
 
     
@@ -35,9 +34,9 @@ export default function ActivityFilter(){
 
     return (
         <div>
-            <h3>Activities</h3>
+            <h3 className={styles.h3}>Activities</h3>
             <select onChange={handleSelect}>
-            <option key={-1}>Select activity</option>
+            <option key={-1} defaultValue= "Select activity">Select activity</option>
             {
                 activities?.map((el, i) => {
                     console.log(el.countries)

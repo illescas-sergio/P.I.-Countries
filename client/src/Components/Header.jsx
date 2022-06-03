@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { getCountries } from "../Actions";
+import styles from "./Header.module.css"
 
 
 
@@ -19,12 +20,13 @@ export default function Header(){
     }
 
     return(
-        <div>
-            
-                    <h1>Algun titulo (Titulo de la página)</h1>
-                    <button onClick = {handleClick}>
-                        volver a cargar todos los paises
-                    </button>
+        <div>        
+               <h1 className={styles.titulo}>Countries-app</h1>
+               <button className={styles.button} onClick = {handleClick}>
+                   Reload all countries
+               </button>
+
+               
         </div>
     )
 

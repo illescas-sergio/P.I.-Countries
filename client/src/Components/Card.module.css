@@ -1,0 +1,105 @@
+.card {
+  background-color: rgba(33, 53, 65, 0.089);
+  color: #fafafa;
+  padding: 15px;
+  height: 280px;
+  margin: 5px;
+  border-radius: 10px;
+  border: 1px;
+  /* border-color: tomato;
+  border-style: solid; */
+  transition: 200ms;
+  max-width: 380px;
+  justify-items: normal;
+}
+
+.card:hover {
+  transition: 200ms;
+  border: 1px;
+  border-color: #fafafa;
+  border-style: solid;
+  backdrop-filter: blur(2px);
+}
+
+/* .card-header {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+} */
+
+/* .profile {
+  width: 2rem;
+  height: 1.5rem;
+  background-color: tomato;
+  border-radius: 50%;
+  margin: 10px;
+  font-size: 20pt;
+  text-align: center;
+  font-weight: bold;
+  color: white;
+  justify-content: center;
+}
+
+.letter {
+  vertical-align: middle;
+}
+
+.card-title-group {
+  justify-content: center;
+}
+
+.card-title {
+  flex: 0.5;
+  font-size: large;
+  margin-bottom: 0;
+  margin-top: 0;
+}
+.card-date {
+  flex: 0.3;
+  font-size: small;
+  margin-top: 0;
+} */
+
+.cardImage {
+  height: 130px;
+  width: 220px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+/* .card-like-icon {
+  height: 25px;
+} */
+
+/* .card-text {
+  width: 350px;
+  font-size: medium;
+} */
+
+/* .card-like-bar {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  justify-content: space-between;
+}
+
+.like-text {
+  font-size: small;
+  margin-left: 10px;
+} */
+
+.link {
+  text-decoration: none;
+  color: #fafafa;
+}
+
+.divName {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  width: 80%;
+  justify-content: center;
+}
+.h5Card {
+  margin: 5px;
+}

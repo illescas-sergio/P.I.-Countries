@@ -35,7 +35,7 @@ router.get("/activities", async (req, res, next) => {
       ],
     });
 
-    res.status(201).send(activities);
+    res.status(200).send(activities);
   } catch (error) {
     next(error);
   }

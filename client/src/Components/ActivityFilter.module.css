@@ -1,0 +1,11 @@
+.filters {
+  display: flex;
+  justify-content: space-between;
+}
+
+.h3 {
+  font-family: "Palatino Linotype", "Book Antiqua", "Palatino", serif;
+  font-style: oblique;
+  font-size: 0.8em;
+  color: #fafafa;
+}

@@ -1,0 +1,51 @@
+.divL {
+  height: 100vh;
+  margin: 0 auto;
+}
+
+.welcome {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 10px;
+
+  font-family: "Palatino Linotype", "Book Antiqua", "Palatino", serif;
+  font-size: 40px;
+  letter-spacing: 6px;
+  word-spacing: 0px;
+
+  font-weight: 700;
+
+  font-style: normal;
+  font-variant: normal;
+  text-transform: uppercase;
+
+  color: #ffffff;
+
+  text-shadow: 0 0 10px #ffffff;
+}
+.link {
+  text-decoration: none;
+}
+
+.button {
+  background: local;
+  border-radius: 7px;
+  text-shadow: 3px 2px 1px #9daef5;
+  /* box-shadow: 6px 5px 24px #423e3e; */
+  font-family: "Palatino Linotype", "Book Antiqua", "Palatino", serif;
+  font-style: oblique;
+  font-size: 0.8em;
+  color: #fafafa;
+  padding: 8px;
+  border-left-width: medium;
+  display: block;
+  border: none;
+  margin: 0 auto;
+  text-decoration: none;
+}
+
+.button:hover {
+  /* background: rgb(8, 23, 65); */
+  font-weight: bold;
+}
