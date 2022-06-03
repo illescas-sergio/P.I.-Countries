@@ -1,13 +1,13 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import {useDispatch, useSelector} from 'react-redux';
-import { getCountries, getCountriesById, filterByContinent, sortByPopulation, sortByName } from "../Actions";
+import { getCountries, getCountriesById, filterByContinent, sortByPopulation, sortByName } from "../../Actions";
 import { Link } from "react-router-dom";
-import Card from "./Card";
-import SearchBar from "./SearchBar";
-import Paginado from "./Paginado";
-import Header from "./Header";
-import ActivityFilter from "./ActivityFilter";
+import Card from "../Card";
+import SearchBar from "../SearchBar";
+import Paginado from "../Paginado";
+import Header from "../Header";
+import ActivityFilter from "../ActivityFilter";
 import styles from "./Home.module.css"
 
 
@@ -50,6 +50,17 @@ export default function Home(){
         setContinent(`Ordenado ${e.target.value }`)
     }
 
+    function handleSort(e){
+        console.log("estoy en handleSort")
+        if(e.target.value === 'alph-asc' || e.target.value === 'alph-desc'){
+            console.log("estoy en ALPHABET")
+            handleSortByName(e);
+        } else if(e.target.value === 'pop-asc' || e.target.value === 'pop-desc'){
+            console.log("estoy en POPULATION")
+            handleSortByPopulation(e);
+        }
+    }
+
     function handleSortByPopulation(e){
         e.preventDefault();
         dispatch(sortByPopulation(e.target.value))
@@ -84,11 +95,13 @@ export default function Home(){
                  
                     <div className={styles.filters} >
                             <div >
-                                <h3 className={styles.h3}>Alphabetic Order</h3>
-                                    <select onChange={handleSortByName}>
+                                <h3 className={styles.h3}>Filter by</h3>
+                                    <select onChange={handleSort}>
                                         <option value='-' defaultValue= ""> - </option>
-                                        <option value='asc'>A-Z</option>
-                                        <option value='desc'>Z-A</option>
+                                        <option value='alph-asc'>Alphabetic A-Z</option>
+                                        <option value='alph-desc'>Alphabetic Z-A</option>
+                                        <option value='pop-asc'>Population Asc</option>
+                                        <option value='pop-desc'>Population Desc</option>
                                     </select>
                             </div>
 
@@ -106,14 +119,14 @@ export default function Home(){
                                     </select>
                             </div>
 
-                            <div >
+                            {/* <div >
                                 <h3 className={styles.h3}>Population</h3>                    
                                     <select onChange={handleSortByPopulation}>
                                         <option value='-' defaultValue= ""> - </option>
-                                        <option value='asc'>Asc</option>
-                                        <option value='desc'>Desc</option>
+                                        <option value='pop-asc'>Asc</option>
+                                        <option value='pop-desc'>Desc</option>
                                     </select>
-                            </div>   
+                            </div>    */}
                            
                                 <ActivityFilter />
                             

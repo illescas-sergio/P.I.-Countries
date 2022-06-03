@@ -3,7 +3,7 @@ import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import CardDetail from "./Components/CardDetail";
 import LandingPage from "./Components/LandingPage";
-import Home from "./Components/Home";
+import Home from "./Components/Home/Home.jsx";
 import ActivityCreate from "./Components/ActivityCreate";
 
 function App() {

@@ -64,7 +64,7 @@ function rootReducer(state = inicialState, action) {
 
     case "SORT_BY_POPULATION":
       const sortedByPopulation =
-        action.payload === "asc"
+        action.payload === "pop-asc"
           ? state.countries.sort((a, b) => b.population - a.population)
           : state.countries.sort((a, b) => a.population - b.population);
 
@@ -75,7 +75,7 @@ function rootReducer(state = inicialState, action) {
 
     case "SORT_BY_NAME":
       const sorted =
-        action.payload === "asc"
+        action.payload === "alph-asc"
           ? state.countries.sort(function (a, b) {
               if (a.name > b.name) {
                 return 1;
