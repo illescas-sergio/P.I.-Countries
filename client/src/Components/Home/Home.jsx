@@ -1,12 +1,13 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import {useDispatch, useSelector} from 'react-redux';
-import { getCountries, getCountriesById, filterByContinent, sortByPopulation, sortByName } from "../../Actions";
+import { getCountries, getCountriesById, filterByContinent } from "../../Actions";
 import { Link } from "react-router-dom";
 import Card from "../Card";
 import SearchBar from "../SearchBar";
 import Paginado from "../Paginado";
 import Header from "../Header";
+import SortBy from "../SortBy/SortBy.jsx";
 import ActivityFilter from "../ActivityFilter";
 import styles from "./Home.module.css"
 
@@ -30,13 +31,10 @@ export default function Home(){
     const currentCountries = allCountries.slice(indexOfFirstCountry, indexOfLastCountry); 
 
 
-    console.log(currentCountries)
-
     const paginado = (pageNumber) => {
         setCurrentPage(pageNumber);
     }
 
-   
 
     useEffect(() => {
         dispatch(getCountries());
@@ -48,31 +46,6 @@ export default function Home(){
         dispatch(filterByContinent(e.target.value))
         setCurrentPage(1);
         setContinent(`Ordenado ${e.target.value }`)
-    }
-
-    function handleSort(e){
-        console.log("estoy en handleSort")
-        if(e.target.value === 'alph-asc' || e.target.value === 'alph-desc'){
-            console.log("estoy en ALPHABET")
-            handleSortByName(e);
-        } else if(e.target.value === 'pop-asc' || e.target.value === 'pop-desc'){
-            console.log("estoy en POPULATION")
-            handleSortByPopulation(e);
-        }
-    }
-
-    function handleSortByPopulation(e){
-        e.preventDefault();
-        dispatch(sortByPopulation(e.target.value))
-        setCurrentPage(1);
-        setNumPop(`Ordenado ${e.target.value }`)
-    }
-
-    function handleSortByName(e){
-        e.preventDefault();
-        dispatch(sortByName(e.target.value))
-        setCurrentPage(1);
-        setOrden(`Ordenado ${e.target.value }`)
     }
 
     function handleCountryById(e){
@@ -94,16 +67,8 @@ export default function Home(){
             
                  
                     <div className={styles.filters} >
-                            <div >
-                                <h3 className={styles.h3}>Filter by</h3>
-                                    <select onChange={handleSort}>
-                                        <option value='-' defaultValue= ""> - </option>
-                                        <option value='alph-asc'>Alphabetic A-Z</option>
-                                        <option value='alph-desc'>Alphabetic Z-A</option>
-                                        <option value='pop-asc'>Population Asc</option>
-                                        <option value='pop-desc'>Population Desc</option>
-                                    </select>
-                            </div>
+
+                        <SortBy currentPage={currentPage} setCurrentPage={setCurrentPage} orden={orden} setOrden={setOrden} numPop={numPop} setNumPop={setNumPop}/>
 
                             <div >
                                 <h3 className={styles.h3}>Continent</h3>
@@ -118,17 +83,8 @@ export default function Home(){
                                         <option value='Oceania'>Oceania</option>
                                     </select>
                             </div>
-
-                            {/* <div >
-                                <h3 className={styles.h3}>Population</h3>                    
-                                    <select onChange={handleSortByPopulation}>
-                                        <option value='-' defaultValue= ""> - </option>
-                                        <option value='pop-asc'>Asc</option>
-                                        <option value='pop-desc'>Desc</option>
-                                    </select>
-                            </div>    */}
                            
-                                <ActivityFilter />
+                        <ActivityFilter />
                             
                     </div>
 
