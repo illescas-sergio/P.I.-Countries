@@ -1,10 +1,10 @@
 import "./App.css";
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import CardDetail from "./Components/CardDetail";
-import LandingPage from "./Components/LandingPage";
+import CardDetail from "./Components/CardDetail/CardDetail.jsx";
+import LandingPage from "./Components/LandingPage/LandingPage.jsx";
 import Home from "./Components/Home/Home.jsx";
-import ActivityCreate from "./Components/ActivityCreate";
+import ActivityCreate from "./Components/ActivityCreate/ActivityCreate";
 
 function App() {
   return (

@@ -1,6 +1,7 @@
-@import-normalize;
+
 
 body {
+  min-height: 100vh;
   text-align: center;
   background-image: url(./landing-page-background.jpg);
   background-attachment: fixed;

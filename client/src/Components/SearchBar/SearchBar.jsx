@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getCountriesByName } from "../Actions";
+import { getCountriesByName } from "../../Actions";
 import styles from "./SearchBar.module.css"
 
 
@@ -30,7 +30,7 @@ export default function SearchBar(){
         const validate= countriesAll.filter((el) => el.name.toLowerCase().includes(toSearch))
         
         if(validate.length < 1){
-           return alert('That Country doesn\' exist')
+           return alert('That Country doesn\'t exist')
             } else {
     
             dispatch(getCountriesByName(name))

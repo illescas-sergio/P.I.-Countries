@@ -1,21 +1,14 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-import { filteredByActivities } from "../Actions";
+import { filteredByActivities } from "../../Actions";
 import styles from "./ActivityFilter.module.css"
-
-
-
-
-
 
 
 export default function ActivityFilter(){
 
     const [activities, setActivities] = useState()
     const dispatch = useDispatch();
-
-    
     
 
     useEffect(()=>{
@@ -28,7 +21,7 @@ export default function ActivityFilter(){
 
     
     function handleSelect(e){    
-        console.log('soy HANDLE', e.target.value)    
+        // console.log('soy HANDLE', e.target.value)    
         dispatch(filteredByActivities(e.target.value))  
     }   
 

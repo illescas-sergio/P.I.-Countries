@@ -1,14 +1,13 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import {useDispatch, useSelector} from 'react-redux';
-import { getCountries, getCountriesById, filterByContinent } from "../../Actions";
-import { Link } from "react-router-dom";
-import Card from "../Card";
-import SearchBar from "../SearchBar";
-import Paginado from "../Paginado";
-import Header from "../Header";
-import SortBy from "../SortBy/SortBy.jsx";
-import ActivityFilter from "../ActivityFilter";
+import { getCountries, getCountriesById } from "../../Actions";
+import Header from "../Header/Header.jsx";
+import Card from "../Card/Card.jsx";
+import Paginado from "../Paginado/Paginado.jsx";
+import SortBy from "../SortBy/SortBy";
+import FilterByCont from "../FilterByCont/FilterByCont";
+import ActivityFilter from "../ActivityFilter/ActivityFilter.jsx";
 import styles from "./Home.module.css"
 
 
@@ -41,27 +40,17 @@ export default function Home(){
       }, [dispatch]);
 
     
-    function handleFilterByContinent(e){
-        e.preventDefault();
-        dispatch(filterByContinent(e.target.value))
-        setCurrentPage(1);
-        setContinent(`Ordenado ${e.target.value }`)
-    }
-
     function handleCountryById(e){
         e.preventDefault();
         dispatch(getCountriesById(e.target.value))
     }
-
         
 
     return(
         <div className={styles.divL} >
 
-                <div >  
-                        <Header />     
-                        <Link to={'/Add/Activity'}> <button className={styles.button}> Add Activity </button></Link>
-                        <SearchBar/>                  
+                <div>  
+                    <Header />                     
                 </div>       
 
             
@@ -70,20 +59,8 @@ export default function Home(){
 
                         <SortBy currentPage={currentPage} setCurrentPage={setCurrentPage} orden={orden} setOrden={setOrden} numPop={numPop} setNumPop={setNumPop}/>
 
-                            <div >
-                                <h3 className={styles.h3}>Continent</h3>
-                                    <select onChange={handleFilterByContinent}>
-                                        <option value='All' defaultValue= "">All</option>
-                                        <option value='Africa'>Africa</option>
-                                        <option value='Antarctica'>Antarctica</option>
-                                        <option value='Asia'>Asia</option>
-                                        <option value='Europe'>Europe</option>                            
-                                        <option value='North America'>North America</option>
-                                        <option value='South America'>South America</option>
-                                        <option value='Oceania'>Oceania</option>
-                                    </select>
-                            </div>
-                           
+                        <FilterByCont setCurrentPage={setCurrentPage} setContinent={setContinent}/>
+                                                       
                         <ActivityFilter />
                             
                     </div>

@@ -5,6 +5,7 @@
 .paginacion ul {
   list-style: none;
   text-align: center;
+  padding: 0;
 }
 
 .paginacion ul li {
@@ -17,15 +18,4 @@
   padding: 10px 10px;
   color: #fff;
   text-decoration: none;
-  /* border-radius: 5px; */
 }
-
-/* .paginacion ul li a:hover {
-  border: solid 1px;
-  border-color: #fafafa;
-}
-
-.paginacion ul li .active {
-  background: lightskyblue;
-  font-weight: bold;
-} */

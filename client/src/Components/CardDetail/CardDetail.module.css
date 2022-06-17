@@ -1,35 +1,60 @@
+.button {
+  background-image: linear-gradient(to bottom, rgb(119, 119, 119), #121313);
+  border-radius: 7px;
+  /* text-shadow: 3px 2px 1px #9daef57a;
+  box-shadow: 6px 5px 24px #595050a3; */
+  font-family: "Palatino Linotype", "Book Antiqua", "Palatino", serif;
+  font-style: oblique;
+  font-size: 0.8em;
+  color: #fafafa;
+  float: right;
+  padding: 8px;
+  border-left-width: medium;
+  display: flex;
+  border: none;
+  margin-right: 5px;
+  text-decoration: none;
+  align-content: center;
+  justify-content: center;
+}
+.divUbication {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
 .card {
+  margin: 0 auto;
   background-color: rgba(33, 53, 65, 0.089);
   color: #fafafa;
-  padding: 15px;
-  height: 280px;
-  margin: 5px;
+  padding: 20px;
   border-radius: 10px;
-  border: 1px;
+  border: 0px;
   /* border-color: tomato;
   border-style: solid; */
   transition: 200ms;
   max-width: 380px;
-  justify-items: normal;
+  min-width: 300px;
 }
 
 .card:hover {
   transition: 200ms;
-  border: 1px;
+  border: 3px;
   border-color: #fafafa;
   border-style: solid;
-  backdrop-filter: blur(2px);
 }
 
-/* .card-header {
+.card-header {
   display: flex;
   flex-wrap: nowrap;
+  justify-content: center;
   align-items: center;
-} */
+}
 
-/* .profile {
-  width: 2rem;
-  height: 1.5rem;
+.profile {
+  width: 2.5rem;
+  height: 2.5rem;
   background-color: tomato;
   border-radius: 50%;
   margin: 10px;
@@ -44,7 +69,8 @@
   vertical-align: middle;
 }
 
-.card-title-group {
+.cardTitle {
+  margin-top: 70px;
   justify-content: center;
 }
 
@@ -58,25 +84,24 @@
   flex: 0.3;
   font-size: small;
   margin-top: 0;
-} */
+}
 
 .cardImage {
-  height: 130px;
-  width: 220px;
-  border-radius: 5px;
+  border-radius: 10px;
   margin-bottom: 10px;
   margin-top: 10px;
+  height: 180px;
 }
-/* .card-like-icon {
+.card-like-icon {
   height: 25px;
-} */
+}
 
-/* .card-text {
+.card-text {
   width: 350px;
   font-size: medium;
-} */
+}
 
-/* .card-like-bar {
+.card-like-bar {
   display: flex;
   align-items: center;
   margin-top: 20px;
@@ -86,20 +111,4 @@
 .like-text {
   font-size: small;
   margin-left: 10px;
-} */
-
-.link {
-  text-decoration: none;
-  color: #fafafa;
-}
-
-.divName {
-  display: flex;
-  flex-wrap: wrap;
-  margin: 0 auto;
-  width: 80%;
-  justify-content: center;
-}
-.h5Card {
-  margin: 5px;
 }

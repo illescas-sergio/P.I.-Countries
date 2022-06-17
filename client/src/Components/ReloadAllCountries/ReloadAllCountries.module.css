@@ -1,0 +1,45 @@
+.titulo {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 30px;
+  
+    font-family: "Palatino Linotype", "Book Antiqua", "Palatino", serif;
+    font-size: 40px;
+    letter-spacing: 6px;
+    word-spacing: 0px;
+  
+    font-weight: 700;
+  
+    font-style: normal;
+    font-variant: normal;
+    text-transform: uppercase;
+  
+    color: #f3e0d0;
+  
+    text-shadow: 0 0 10px #ffffff;
+  }
+  
+  .button {
+    background-image: linear-gradient(to bottom, rgb(119, 119, 119), #121313);
+    border-radius: 7px;
+    /* text-shadow: 3px 2px 1px #9daef57a;
+    box-shadow: 6px 5px 24px #595050a3; */
+    font-family: "Palatino Linotype", "Book Antiqua", "Palatino", serif;
+    font-style: oblique;
+    font-size: 0.8em;
+    color: #fafafa;
+    padding: 8px;
+    border-left-width: medium;
+    display: inline-block;
+    
+    border: none;
+    
+    text-decoration: none;
+  }
+  
+  .button:hover {
+    background: rgb(8, 23, 65);
+    cursor: pointer;
+  }
+  
