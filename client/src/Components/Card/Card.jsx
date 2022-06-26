@@ -9,7 +9,7 @@ export default function Card({name, flag, continent, id}){
         <Link className={styles.link} to={`/${id}`}>
             <div className={styles.card}>
                 <h3 className={styles.divName}>{name}</h3>
-                <h5 >{continent}</h5>
+                <h5 className={styles.h5Card}>{continent}</h5>
                 
                 <img className={styles.cardImage} src={flag} alt="Not found" />
                 
