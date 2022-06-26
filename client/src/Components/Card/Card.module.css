@@ -1,7 +1,9 @@
 .card {
+  box-sizing: border-box;
   background-color: rgba(33, 53, 65, 0.1);
   color: #fafafa;
   padding: 5px;
+  /* padding: auto; */
   height: 280px;
   width: 230px;
   margin: 5px;
@@ -14,6 +16,7 @@
 
 .card:hover {
   transform: scale(1.1);
+  background-color: rgba(9, 26, 26, 0.5);
   border: 1px solid #fafafa;
 }
 

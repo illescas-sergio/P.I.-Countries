@@ -46,7 +46,7 @@ export default function SortBy({currentPage, setCurrentPage, orden, setOrden, nu
         <div >
             <h3 className={styles.h3}>Filter by</h3>
             <select onChange={handleSort}>
-                <option value='-' defaultValue= ""> - </option>
+                <option value='-' defaultValue= "" selected> - </option>
                 <option value='alph-asc'>Alphabetic A-Z</option>
                 <option value='alph-desc'>Alphabetic Z-A</option>
                 <option value='pop-asc'>Population Desc</option>

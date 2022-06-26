@@ -25,7 +25,7 @@ export default function FilterByCont({setContinent, setCurrentPage}){
             <div className="desplegables">
                 <h3 className={styles.h3}>Continent</h3>
                     <select onChange={handleFilterByContinent}>
-                        <option value='All'>All</option>
+                        <option value='All' selected>All</option>
                         <option value='Africa'>Africa</option>
                         <option value='Antarctica'>Antarctica</option>
                         <option value='Asia'>Asia</option>
