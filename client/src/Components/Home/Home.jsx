@@ -34,7 +34,6 @@ export default function Home(){
         setCurrentPage(pageNumber);
     }
 
-
     useEffect(() => {
         dispatch(getCountries());
       }, [dispatch]);
@@ -44,7 +43,8 @@ export default function Home(){
         e.preventDefault();
         dispatch(getCountriesById(e.target.value))
     }
-        
+    
+    console.log(continent)
 
     return(
         <div className={styles.divL} >
@@ -59,7 +59,7 @@ export default function Home(){
 
                         <SortBy currentPage={currentPage} setCurrentPage={setCurrentPage} orden={orden} setOrden={setOrden} numPop={numPop} setNumPop={setNumPop}/>
 
-                        <FilterByCont setCurrentPage={setCurrentPage} setContinent={setContinent}/>
+                        <FilterByCont currentPage={currentPage} setCurrentPage={setCurrentPage} continent={continent} setContinent={setContinent}/>
                                                        
                         <ActivityFilter />
                             

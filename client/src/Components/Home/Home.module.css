@@ -1,8 +1,8 @@
 .button {
   background-image: linear-gradient(to bottom, rgb(119, 119, 119), #121313);
   border-radius: 7px;
-  font-family: "Palatino Linotype", "Book Antiqua", "Palatino", serif;
-  font-style: oblique;
+  font-family: Verdana, Tahoma, sans-serif;
+  /* font-style: oblique; */
   font-size: 0.8em;
   color: #fafafa;
   float: right;
@@ -26,13 +26,14 @@
 }
 
 .filters {
+  font-family: Verdana, Tahoma, sans-serif;
   margin-top: 30px;
   display: flex;
   justify-content: center;
 }
 
 .h3 {
-  font-family: "Palatino Linotype", "Book Antiqua", "Palatino", serif;
+  font-family: Verdana, Tahoma, sans-serif;
   font-style: oblique;
   font-size: 0.8em;
   color: #fafafa;
@@ -42,6 +43,6 @@
   display: flex;
   flex-wrap: wrap;
   max-width: 1300px;
-  /* justify-content: center; */
+  justify-content: center;
   margin: 10px auto;
 }

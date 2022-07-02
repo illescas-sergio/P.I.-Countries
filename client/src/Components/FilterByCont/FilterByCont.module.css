@@ -7,8 +7,9 @@
     border-radius: 7px;
     /* text-shadow: 3px 2px 1px #9daef57a;
     box-shadow: 6px 5px 24px #595050a3; */
-    font-family: "Palatino Linotype", "Book Antiqua", "Palatino", serif;
-    font-style: oblique;
+    /* font-family: "Palatino Linotype", "Book Antiqua", "Palatino", serif;
+    font-style: oblique; */
+    font-family: Verdana, Tahoma, sans-serif;
     font-size: 0.8em;
     color: #fafafa;
     float: right;
@@ -39,8 +40,9 @@
   }
   
   .h3 {
-    font-family: "Palatino Linotype", "Book Antiqua", "Palatino", serif;
-    font-style: oblique;
+    /* font-family: "Palatino Linotype", "Book Antiqua", "Palatino", serif;
+    font-style: oblique; */
+    font-family: Verdana, Tahoma, sans-serif;
     font-size: 0.8em;
     color: #fafafa;
   }

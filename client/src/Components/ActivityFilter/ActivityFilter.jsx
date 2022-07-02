@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { filteredByActivities } from "../../Actions";
 import styles from "./ActivityFilter.module.css"
 
@@ -21,7 +21,7 @@ export default function ActivityFilter(){
 
     
     function handleSelect(e){    
-        // console.log('soy HANDLE', e.target.value)    
+   
         dispatch(filteredByActivities(e.target.value))  
     }   
 
@@ -32,7 +32,7 @@ export default function ActivityFilter(){
             <option key={-1} defaultValue= "Select activity">Select activity</option>
             {
                 activities?.map((el, i) => {
-                    console.log(el.countries)
+                    
                    return (
                     <option value={el.name} key={i}>{el.name}</option>
                 )

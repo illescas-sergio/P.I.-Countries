@@ -9,7 +9,8 @@
   text-align: center;
   padding: 10px;
 
-  font-family: "Palatino Linotype", "Book Antiqua", "Palatino", serif;
+  /* font-family: "Palatino Linotype", "Book Antiqua", "Palatino", serif; */
+  font-family: Verdana, Tahoma, sans-serif;
   font-size: 40px;
   letter-spacing: 6px;
   word-spacing: 0px;
@@ -20,7 +21,7 @@
   font-variant: normal;
   text-transform: uppercase;
 
-  color: #ffffff;
+  color: #f3e0d0;
 
   text-shadow: 0 0 10px #ffffff;
 }
@@ -33,10 +34,10 @@
   border-radius: 7px;
   text-shadow: 3px 2px 1px #9daef5;
   /* box-shadow: 6px 5px 24px #423e3e; */
-  font-family: "Palatino Linotype", "Book Antiqua", "Palatino", serif;
+  font-family: Verdana, Tahoma, sans-serif;
   font-style: oblique;
   font-size: 0.8em;
-  color: #fafafa;
+  color: #f3e0d0;
   padding: 8px;
   border-left-width: medium;
   display: block;

@@ -17,6 +17,12 @@
   align-content: center;
   justify-content: center;
 }
+
+.button:hover {
+  background: rgb(8, 23, 65);
+  cursor: pointer;
+}
+
 .divUbication {
   display: flex;
   height: 100vh;
@@ -39,7 +45,6 @@
 }
 
 .card:hover {
-  transition: 200ms;
   border: 3px;
   border-color: #fafafa;
   border-style: solid;

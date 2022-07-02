@@ -1,15 +1,12 @@
 .button {
   background-image: linear-gradient(to bottom, rgb(119, 119, 119), #121313);
   border-radius: 7px;
-
-  font-family: "Palatino Linotype", "Book Antiqua", "Palatino", serif;
-  font-style: oblique;
+  font-family: Verdana, Tahoma, sans-serif;
   font-size: 0.8em;
   color: #fafafa;
   float: center;
   padding: 8px;
   border-left-width: medium;
-
   flex-direction: column;
   border: none;
   margin-right: 5px;
@@ -18,26 +15,36 @@
   justify-content: center;
 }
 
+.button:hover {
+  background: rgb(8, 23, 65);
+  cursor: pointer;
+}
+
 .buttonAdd {
   background-image: linear-gradient(to bottom, rgb(119, 119, 119), #121313);
   border-radius: 7px;
-  /* text-shadow: 3px 2px 1px #9daef57a;
-      box-shadow: 6px 5px 24px #595050a3; */
-  font-family: "Palatino Linotype", "Book Antiqua", "Palatino", serif;
-  font-style: oblique;
+  font-family: Verdana, Tahoma, sans-serif;
   font-size: 0.8em;
   color: #fafafa;
   float: center;
   padding: 8px;
   border-left-width: medium;
   margin-top: 20px;
-
   flex-direction: column;
   border: none;
   margin-right: 5px;
   text-decoration: none;
   align-content: center;
   justify-content: center;
+}
+
+.buttonAdd:hover {
+  background: rgb(8, 23, 65);
+  cursor: pointer;
+}
+
+.buttonAdd:disabled, button[hover] {
+  cursor: pointer;
 }
 
 .button:disabled,
@@ -50,6 +57,8 @@ button[disabled] {
 .divUbication {
   display: flex;
   justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 .text {
@@ -80,9 +89,6 @@ button[disabled] {
   color: #fafafa;
   padding: 20px;
   border-radius: 10px;
-
-  /* border-color: tomato;
-    border-style: solid; */
   transition: 200ms;
   max-width: 380px;
   backdrop-filter: blur(8px);

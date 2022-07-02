@@ -44,9 +44,9 @@ function rootReducer(state = inicialState, action) {
       };
 
     case "FILTER_BY_ACTIVITY":
-      console.log("soy reducer 1", action.payload);
+      
       const countries = state.allCountries;
-      console.log("soy reducer2", countries);
+      
       const filteredByActivities = countries.filter((el) =>
         el.activities
           .map((el) => {
@@ -54,8 +54,6 @@ function rootReducer(state = inicialState, action) {
           })
           .includes(action.payload)
       );
-
-      console.log("soy reducer3", filteredByActivities);
 
       return {
         ...state,

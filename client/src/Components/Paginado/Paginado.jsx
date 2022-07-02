@@ -3,8 +3,6 @@ import {Link} from "react-router-dom";
 import styles from "./Paginado.module.css"
 
 
-
-
 export default function Paginado({countriesPerPage, allCountries, paginado}){
 
     const pageNumber = [];
@@ -22,7 +20,7 @@ export default function Paginado({countriesPerPage, allCountries, paginado}){
                     pageNumber && pageNumber.map(number => (
                         <li key={number}>
                             <Link to='Home'>
-                        <a href onClick={()=> paginado(number)}>{number}</a>
+                        <p onClick={()=> paginado(number)}>{number}</p>
                             </Link>
                         </li>
                     ))

@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
+import { } from "react-router";
 import {Link} from 'react-router-dom';
 import styles from "./CardDetail.module.css"
 
@@ -20,16 +21,14 @@ export default function CardDetail(){
         return () => {
             setDetail(null)
         }
-    },[])
-
-    console.log(detail)
-    
+    },[id])  
    
     return(
         <div className={styles.divUbication}>
             <div className={styles.card} > 
                 <div>
                 <Link to={'/Home'}> <button className={styles.button}> HOME </button> </Link>
+                {/* <button onClick={handleBackToHome} className={styles.button}>HOME</button> */}
                 </div> 
 
                 <h3 className={styles.cardTitle}>{detail.name}</h3>

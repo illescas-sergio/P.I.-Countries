@@ -11,9 +11,7 @@ export default function SearchBar(){
     const dispatch = useDispatch();
     const [name, setName] = useState("");
     
-    const countriesAll = useSelector((state) => state.allCountries)
-
-    
+    const countriesAll = useSelector((state) => state.allCountries)    
 
 
     function handleInputChange(e){
@@ -46,7 +44,7 @@ export default function SearchBar(){
         <div className={styles.divSearch}>
             
                 
-                    <input className={styles.input} type="text" placeholder="search your country"
+                    <input className={styles.input} type="text" placeholder="search your country..."
                     onChange={handleInputChange} />
 
                     <button className={styles.button} type="submit" onClick={handleSubmit} >Search</button>

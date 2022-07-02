@@ -4,11 +4,7 @@ import { filterByContinent } from "../../Actions";
 import styles from "./FilterByCont.module.css";
 
 
-
-
-
-
-export default function FilterByCont({setContinent, setCurrentPage}){
+export default function FilterByCont({continent, setContinent, currentPage, setCurrentPage}){
     
     const dispatch = useDispatch();
 
@@ -16,7 +12,7 @@ export default function FilterByCont({setContinent, setCurrentPage}){
         e.preventDefault();
         dispatch(filterByContinent(e.target.value))
         setCurrentPage(1);
-        setContinent(`Ordenado ${e.target.value }`)
+        setContinent(e.target.value)
     }
 
     return(       
@@ -25,7 +21,7 @@ export default function FilterByCont({setContinent, setCurrentPage}){
             <div className="desplegables">
                 <h3 className={styles.h3}>Continent</h3>
                     <select onChange={handleFilterByContinent}>
-                        <option value='All' selected>All</option>
+                        <option value='All'>All</option>
                         <option value='Africa'>Africa</option>
                         <option value='Antarctica'>Antarctica</option>
                         <option value='Asia'>Asia</option>

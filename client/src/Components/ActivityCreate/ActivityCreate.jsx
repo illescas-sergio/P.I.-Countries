@@ -31,15 +31,11 @@ export default function ActivityCreate(){
         difficulty: ""
     })
 
-    console.log(input)
-
     useEffect(() => {        
         dispatch(getCountries())
-    }, [])
+    }, [dispatch])
 
     
-
-   
     function handleChange(e){
         setInput({
             ...input,
@@ -85,10 +81,7 @@ export default function ActivityCreate(){
         
     }
 
-    console.log(input.countryId)
-
     function handleDelete(el){
-        console.log(el)
         
         setInput({
             ...input,
@@ -99,110 +92,100 @@ export default function ActivityCreate(){
     
 
     return(
-        <div className={styles.card} >
-            <Link to={'/Home'}> <button  className={styles.button}> HOME </button> </Link>
+        <div className={styles.divUbication}>
+            <div className={styles.card} >
+                <Link to={'/Home'}> <button  className={styles.button}> HOME </button> </Link>
 
-            <h2 className={styles.text}>Add Activity</h2>
+                <h2 className={styles.text}>Add Activity</h2>
 
-            <form  onSubmit={handleSubmit}>
-                        
-
-                <div>
-                    <label className={styles.text} >Nombre:</label>
-                    <input className={styles.radioSpace} type="text" name="name" value={input.name} onChange={handleChange} />
-                    {
-                        errors.name && (
-                            <p>{errors.name}</p>
-                        )
-                    }
-                     
-                </div>
-
-                <div>
-                    <label className={styles.text} >Country:
-                        <select  name="countryId" onChange={handleCountryId} >
-                        <option  defaultValue="" >Select Country</option>
-                            {
-                                            
-                               
-                                countries?.map((el) =>(
-
-                                    <option key={el.id} value={el.id} >{el.name}</option>
-                                    
-                                ) 
-                                )
-                            }
+                <form  onSubmit={handleSubmit}>
                             
-                        </select>
+                    <div>
+                        <label className={styles.text} >Nombre:</label>
+                        <input className={styles.radioSpace} type="text" name="name" value={input.name} onChange={handleChange} />
+                        {
+                            errors.name && (
+                                <p>{errors.name}</p>
+                            )
+                        }  
+                    </div>
+
+                    <div>
+                        <label className={styles.text} >Country:
+                            <select  name="countryId" onChange={handleCountryId} >
+                            <option  defaultValue="" >Select Country</option>
+                                {
+                                    countries?.sort(function (a, b) {
+                                        if (a.name > b.name) {
+                                          return 1;
+                                        }
+                                        if (b.name > a.name) {
+                                          return -1;
+                                        }
+                                        return 0;
+                                      }).map((el) =>(
+                                        <option key={el.id} value={el.id} >{el.name}</option>  
+                                    ) 
+                                    )
+                                }
+                                
+                            </select>
+                            </label>    
+                    </div>
+
+                    <div>
+                        <h3 className={styles.textSeason}>Season:</h3>
+                        <label className={styles.text}>Spring<input className={styles.radioSpace} type="radio" name="season" value='spring' onChange={handleCheck}/>
                         </label>
-                        
-                </div>
+                        <label className={styles.text}>Summer<input className={styles.radioSpace} type="radio" name='season' value='summer' onChange={handleCheck}/>
+                        </label>
+                        <label className={styles.text} >Fall<input className={styles.radioSpace} type="radio" name='season' value='fall' onChange={handleCheck}/>
+                        </label>
+                        <label className={styles.text} >Winter<input className={styles.radioSpace} type="radio" name='season' value='winter' onChange={handleCheck}/>
+                        </label>                                                                                 
+                    </div>
 
+                    <div>
+                        <h3 className={styles.text}>Duration:</h3>       
+                        <label className={styles.spacing}>1<input className={styles.radioSpace} type="radio" name="duration" value='1' onChange={handleCheck}/>
+                        </label>
+                        <label className={styles.spacing}>2<input className={styles.radioSpace} type="radio" name="duration" value='2' onChange={handleCheck}/>
+                        </label>
+                        <label className={styles.spacing}>3<input className={styles.radioSpace} type="radio" name="duration" value='3' onChange={handleCheck}/>
+                        </label>
+                        <label className={styles.spacing}>4<input className={styles.radioSpace} type="radio" name="duration" value='4' onChange={handleCheck}/>
+                        </label>
+                        <label className={styles.spacing}>5<input className={styles.radioSpace} type="radio" name="duration" value='5' onChange={handleCheck}/>
+                        </label>   
+                    </div>
+                    
+                    <div>
+                        <h3 className={styles.text}>Difficulty:</h3>
+                        <label className={styles.spacing}>1<input className={styles.radioSpace} type="radio" name="difficulty" value='1' onChange={handleCheck}/>
+                        </label>
+                        <label className={styles.spacing}>2<input className={styles.radioSpace} type="radio" name="difficulty" value='2' onChange={handleCheck}/>
+                        </label>
+                        <label className={styles.spacing}>3<input className={styles.radioSpace} type="radio" name="difficulty" value='3' onChange={handleCheck}/>
+                        </label>
+                        <label className={styles.spacing}>4<input className={styles.radioSpace} type="radio" name="difficulty" value='4' onChange={handleCheck}/>
+                        </label>
+                        <label className={styles.spacing}>5<input className={styles.radioSpace} type="radio" name="difficulty" value='5' onChange={handleCheck}/>
+                        </label>         
+                    </div>
 
+                    <div>
+                        <button className={styles.buttonAdd} disabled={!input.name || !input.countryId.length || !input.difficulty || !input.duration || !input.season} type="Submit" >Add!</button>
+                    </div>
 
-                <div>
-                    <h3 className={styles.textSeason}>Season:</h3>
-                    <label className={styles.text}>Spring<input className={styles.radioSpace} type="radio" name="season" value='spring' onChange={handleCheck}/>
-                    </label>
-                    <label className={styles.text}>Summer<input className={styles.radioSpace} type="radio" name='season' value='summer' onChange={handleCheck}/>
-                    </label>
-                    <label className={styles.text} >Fall<input className={styles.radioSpace} type="radio" name='season' value='fall' onChange={handleCheck}/>
-                    </label>
-                    <label className={styles.text} >Winter<input className={styles.radioSpace} type="radio" name='season' value='winter' onChange={handleCheck}/>
-                    </label>                     
-                                                 
-                                                        
-                </div>
-                <div>
-                <h3 className={styles.text}>Duration:</h3>
-                            
-                    <label className={styles.spacing}>1<input className={styles.radioSpace} type="radio" name="duration" value='1' onChange={handleCheck}/>
-                    </label>
-                    <label className={styles.spacing}>2<input className={styles.radioSpace} type="radio" name="duration" value='2' onChange={handleCheck}/>
-                    </label>
-                    <label className={styles.spacing}>3<input className={styles.radioSpace} type="radio" name="duration" value='3' onChange={handleCheck}/>
-                    </label>
-                    <label className={styles.spacing}>4<input className={styles.radioSpace} type="radio" name="duration" value='4' onChange={handleCheck}/>
-                    </label>
-                    <label className={styles.spacing}>5<input className={styles.radioSpace} type="radio" name="duration" value='5' onChange={handleCheck}/>
-                    </label>   
-                        
-                </div>
-                <div>
-                <h3 className={styles.text}>Difficulty:</h3>
+                </form>
 
-                    <label className={styles.spacing}>1<input className={styles.radioSpace} type="radio" name="difficulty" value='1' onChange={handleCheck}/>
-                    </label>
-                    <label className={styles.spacing}>2<input className={styles.radioSpace} type="radio" name="difficulty" value='2' onChange={handleCheck}/>
-                    </label>
-                    <label className={styles.spacing}>3<input className={styles.radioSpace} type="radio" name="difficulty" value='3' onChange={handleCheck}/>
-                    </label>
-                    <label className={styles.spacing}>4<input className={styles.radioSpace} type="radio" name="difficulty" value='4' onChange={handleCheck}/>
-                    </label>
-                    <label className={styles.spacing}>5<input className={styles.radioSpace} type="radio" name="difficulty" value='5' onChange={handleCheck}/>
-                    </label>   
-                        
-                </div>
-
-                <div>
-                    <button className={styles.buttonAdd} disabled={!input.name || !input.countryId.length || !input.difficulty || !input.duration || !input.season} type="Submit" >Add!</button>
-                </div>
-
-
-            </form>
-
+                    {input.countryId.map((el) => 
+                            (<div key={el} >
+                                <button className={styles.button} onClick={(e)=>handleDelete(el)}>x  {el}</button>
+                            </div>)
+                    )}
                 
-                
-                {input.countryId.map((el) => 
-                        (<div key={el} >
-                            
-                            <button className={styles.button} onClick={(e)=>handleDelete(el)}>x  {el}</button>
-                        </div>)
-                )}
-            
-
-
-
+            </div>
         </div>
     )
 
