@@ -43,8 +43,8 @@ export default function Home(){
         e.preventDefault();
         dispatch(getCountriesById(e.target.value))
     }
-    
-    console.log(continent)
+
+    console.log(orden)
 
     return(
         <div className={styles.divL} >

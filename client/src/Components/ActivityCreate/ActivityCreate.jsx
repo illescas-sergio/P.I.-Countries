@@ -31,9 +31,9 @@ export default function ActivityCreate(){
         difficulty: ""
     })
 
-    useEffect(() => {        
-        dispatch(getCountries())
-    }, [dispatch])
+    // useEffect(() => {        
+    //     dispatch(getCountries())
+    // }, [dispatch])
 
     
     function handleChange(e){
