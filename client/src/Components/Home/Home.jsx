@@ -34,17 +34,12 @@ export default function Home(){
         setCurrentPage(pageNumber);
     }
 
-    useEffect(() => {
-        dispatch(getCountries());
-      }, [dispatch]);
-
     
     function handleCountryById(e){
         e.preventDefault();
         dispatch(getCountriesById(e.target.value))
+        console.log(e.target.value)
     }
-
-    console.log(orden)
 
     return(
         <div className={styles.divL} >

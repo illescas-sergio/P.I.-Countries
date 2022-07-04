@@ -1,8 +1,10 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router";
 import { } from "react-router";
 import {Link} from 'react-router-dom';
+import { getCountriesById } from "../../Actions";
 import styles from "./CardDetail.module.css"
 
 
@@ -11,26 +13,25 @@ export default function CardDetail(){
 
     const {id} = useParams();
 
-    const [detail, setDetail] = useState('');
+    const dispatch = useDispatch();
 
-    useEffect(()=>{
-        axios.get("http://localhost:3001/countriesById/"+id)
-        .then((resp) => {
-            setDetail(resp.data)
-        })
-        return () => {
-            setDetail(null)
-        }
-    },[id])  
+    const detail = useSelector((state) => state.countriesDetail)
+
+    useEffect(() => {
+        dispatch(getCountriesById(id))
+    }, [dispatch])
    
-    return(
+    return(        
+       
         <div className={styles.divUbication}>
-            <div className={styles.card} > 
-                <div>
-                <Link to={'/Home'}> <button className={styles.button}> HOME </button> </Link>
-                {/* <button onClick={handleBackToHome} className={styles.button}>HOME</button> */}
-                </div> 
 
+            {
+                !detail ? <p>Please wait</p> : 
+                <div className={styles.card} > 
+                <div>
+                    <Link to={'/Home'}> <button className={styles.button}> HOME </button> </Link>
+                </div> 
+                
                 <h3 className={styles.cardTitle}>{detail.name}</h3>
                 <h5>{detail.continent}</h5>
                 <img className={styles.cardImage} src={detail.flag} alt="Not found" />
@@ -49,6 +50,8 @@ export default function CardDetail(){
                 ))} </h5>          
                         
             </div>
+            }
+            
         </div>    
     )
     

@@ -10,10 +10,6 @@ export default function ReloadAllCountries(){
 
     const dispatch = useDispatch();
 
-    // useEffect(() => {
-    //     dispatch(getCountries());
-    //   }, [dispatch]);
-
     function handleClick(e){
         e.preventDefault();
         dispatch(getCountries())
