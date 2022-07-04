@@ -21,15 +21,17 @@ export default function ActivityFilter(){
 
     
     function handleSelect(e){    
-   
-        dispatch(filteredByActivities(e.target.value))  
+        if(e.target.value !== "-"){
+            dispatch(filteredByActivities(e.target.value))
+        }
+          
     }   
 
     return (
         <div>
             <h3 className={styles.h3}>Activities</h3>
             <select onChange={handleSelect}>
-            <option key={-1} defaultValue= "Select activity">Select activity</option>
+            <option value= "-">Select activity</option>
             {
                 activities?.map((el, i) => {
                     

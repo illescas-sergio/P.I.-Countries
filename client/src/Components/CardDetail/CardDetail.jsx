@@ -1,5 +1,4 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router";
 import { } from "react-router";
@@ -19,14 +18,14 @@ export default function CardDetail(){
 
     useEffect(() => {
         dispatch(getCountriesById(id))
-    }, [dispatch])
+    }, [dispatch, id])
    
     return(        
        
         <div className={styles.divUbication}>
 
             {
-                !detail ? <p>Please wait</p> : 
+                !detail ? <p className={styles.cardTitle}>Please wait</p> : 
                 <div className={styles.card} > 
                 <div>
                     <Link to={'/Home'}> <button className={styles.button}> HOME </button> </Link>

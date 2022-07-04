@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useDispatch } from "react-redux";
 import { getCountries } from "../../Actions";
 import styles from "./ReloadAllCountries.module.css";

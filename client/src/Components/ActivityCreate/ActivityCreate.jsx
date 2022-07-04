@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom"; 
 import { useDispatch, useSelector } from "react-redux";
-import { getCountries, postActivity } from "../../Actions";
+import { postActivity } from "../../Actions";
 import styles from "./ActivityCreate.module.css"
 
 
@@ -30,11 +30,6 @@ export default function ActivityCreate(){
         duration: "",
         difficulty: ""
     })
-
-    // useEffect(() => {        
-    //     dispatch(getCountries())
-    // }, [dispatch])
-
     
     function handleChange(e){
         setInput({

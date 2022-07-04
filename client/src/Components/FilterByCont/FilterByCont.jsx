@@ -12,7 +12,7 @@ export default function FilterByCont({continent, setContinent, currentPage, setC
         e.preventDefault();
         dispatch(filterByContinent(e.target.value))
         setCurrentPage(1);
-        setContinent(e.target.value)
+        setContinent(e.target.value);
     }
 
     return(       
