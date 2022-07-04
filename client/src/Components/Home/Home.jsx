@@ -60,7 +60,7 @@ export default function Home(){
                             
                     </div>
 
-                    <Paginado countriesPerPage={countriesPerPage} allCountries={allCountries?.length} paginado={paginado}/>          
+                    <Paginado currentPage={currentPage} countriesPerPage={countriesPerPage} allCountries={allCountries?.length} paginado={paginado}/>          
                 
                     
                     <div className={styles.divcards}>

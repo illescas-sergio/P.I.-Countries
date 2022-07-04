@@ -16,10 +16,17 @@
 .paginacion ul li a {
   display: block;
   padding: 10px 10px;
-  color: #fff;
+  color: #fafafa;
   text-decoration: none;
 }
 
-.activo {
-  border: 1px solid #026227a8;
+.paginacion ul li a:active {
+  border-bottom: 1px solid #fafafa;
 }
+
+.activo {
+  border: 2px solid rgba(123, 156, 123, 0.779);
+  border-radius: 5px;
+}
+
+
