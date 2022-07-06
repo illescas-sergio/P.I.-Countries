@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router";
-import { } from "react-router";
 import {Link} from 'react-router-dom';
 import { getCountriesById } from "../../Actions";
 import styles from "./CardDetail.module.css"
@@ -14,11 +13,11 @@ export default function CardDetail(){
 
     const dispatch = useDispatch();
 
-    const detail = useSelector((state) => state.countriesDetail)
+    const detail = useSelector((state) => state.countriesDetail);
 
     useEffect(() => {
         dispatch(getCountriesById(id))
-    }, [dispatch, id])
+    }, [dispatch, id]);
    
     return(        
        
@@ -28,7 +27,7 @@ export default function CardDetail(){
                 !detail ? <p className={styles.cardTitle}>Please wait</p> : 
                 <div className={styles.card} > 
                 <div>
-                    <Link to={'/Home'}> <button className={styles.button}> HOME </button> </Link>
+                    <Link to={'/Home'}> <button className={styles.button}> Go back </button> </Link>
                 </div> 
                 
                 <h3 className={styles.cardTitle}>{detail.name}</h3>

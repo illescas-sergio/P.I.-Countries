@@ -7,6 +7,7 @@ import Home from "./Components/Home/Home.jsx";
 import ActivityCreate from "./Components/ActivityCreate/ActivityCreate";
 
 function App() {
+
   return (
     <BrowserRouter>
       <div className="App">

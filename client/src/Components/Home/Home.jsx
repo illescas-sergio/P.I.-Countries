@@ -11,16 +11,16 @@ import ActivityFilter from "../ActivityFilter/ActivityFilter.jsx";
 import styles from "./Home.module.css"
 
 
-
 export default function Home(){
 
     const dispatch = useDispatch();
     
-    const allCountries = useSelector((state) => state.countries);
+    const allCountries = useSelector((state) => state.countries); 
     
     const [orden, setOrden] = useState('');
     const [numPop, setNumPop] = useState('');
-    const [continent, setContinent] = useState('');   
+
+    const [continent, setContinent] = useState('');
     
     const [currentPage, setCurrentPage] = useState(1);
     const [countriesPerPage] = useState(10)
@@ -28,12 +28,6 @@ export default function Home(){
     const indexOfLastCountry = currentPage * countriesPerPage; // 10
     const indexOfFirstCountry = indexOfLastCountry - countriesPerPage //0
     const currentCountries = allCountries.slice(indexOfFirstCountry, indexOfLastCountry); 
-
-
-    const paginado = (pageNumber) => {
-        setCurrentPage(pageNumber);
-    }
-
     
     function handleCountryById(e){
         e.preventDefault();
@@ -44,40 +38,36 @@ export default function Home(){
     return(
         <div className={styles.divL} >
 
-                <div>  
-                    <Header />                     
-                </div>       
-
-            
+            <div>  
+                <Header />                     
+            </div>       
                  
-                    <div className={styles.filters} >
+            <div className={styles.filters} >
 
-                        <SortBy currentPage={currentPage} setCurrentPage={setCurrentPage} orden={orden} setOrden={setOrden} numPop={numPop} setNumPop={setNumPop}/>
+                <SortBy numPop={numPop} setNumPop={setNumPop} orden={orden} setOrden={setOrden} currentPage={currentPage} setCurrentPage={setCurrentPage}/>
 
-                        <FilterByCont currentPage={currentPage} setCurrentPage={setCurrentPage} continent={continent} setContinent={setContinent}/>
+                <FilterByCont continent={continent} setContinent={setContinent} currentPage={currentPage} setCurrentPage={setCurrentPage}/>
                                                        
-                        <ActivityFilter />
+                <ActivityFilter />
                             
-                    </div>
+            </div>
 
-                    <Paginado currentPage={currentPage} countriesPerPage={countriesPerPage} allCountries={allCountries?.length} paginado={paginado}/>          
+            <Paginado setCurrentPage={setCurrentPage} currentPage={currentPage} countriesPerPage={countriesPerPage} allCountries={allCountries?.length}/>          
                 
                     
-                    <div className={styles.divcards}>
-                        {
-                            currentCountries?.length > 0 ? currentCountries.map(el=> (
+            <div className={styles.divcards}>
+            {
+                currentCountries?.length > 0 ? currentCountries.map(el=> (
                                 
-                                <div  key={el.id}>                            
-                                        <Card  key={el.id} onClick={handleCountryById} name={el.name} flag={el.flag} continent={el.continent} id={el.id}/>                            
-                                </div>
-                                                    
-                                                    )) : <div ><h3>No such country</h3></div>
-                                                    
-                                                }
+                    <div  key={el.id}>                            
+                        <Card  key={el.id} onClick={handleCountryById} name={el.name} flag={el.flag} continent={el.continent} id={el.id} currentPage={currentPage} setCurrentPage={setCurrentPage} />                            
                     </div>
-            
-                   
-                      
+                                                    
+                )) : <div ><h3>No such country</h3></div>
+                                                    
+            }
+            </div>
+                          
         </div>
     )
 }

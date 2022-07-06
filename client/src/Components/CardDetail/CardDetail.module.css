@@ -96,6 +96,7 @@
   margin-bottom: 10px;
   margin-top: 10px;
   height: 180px;
+  max-width: 100%;
 }
 .card-like-icon {
   height: 25px;

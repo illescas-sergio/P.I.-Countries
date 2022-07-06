@@ -4,7 +4,7 @@ import { sortByName, sortByPopulation } from "../../Actions";
 import styles from "./SortBy.module.css";
 
 
-export default function SortBy({currentPage, setCurrentPage, orden, setOrden, numPop, setNumPop}){
+export default function SortBy({currentPage, setCurrentPage, orden, setOrden, setNumPop, numPop}){
     
     const dispatch = useDispatch();
 

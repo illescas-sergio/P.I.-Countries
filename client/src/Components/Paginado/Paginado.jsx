@@ -3,14 +3,17 @@ import {NavLink} from "react-router-dom";
 import styles from "./Paginado.module.css"
 
 
-export default function Paginado({currentPage, countriesPerPage, allCountries, paginado}){
+export default function Paginado({currentPage, setCurrentPage, countriesPerPage, allCountries}){
 
     const pageNumber = [];
 
     for(let i = 1; i <= Math.ceil(allCountries/countriesPerPage); i++){
         pageNumber.push(i)
     };
-    
+
+    const paginado = (pageNumber) => {
+        setCurrentPage(pageNumber);
+    }
 
 
     return(
