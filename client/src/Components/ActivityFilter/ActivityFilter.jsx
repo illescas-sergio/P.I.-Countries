@@ -1,30 +1,20 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { useDispatch } from "react-redux";
-import { filteredByActivities } from "../../Actions";
+import { useDispatch, useSelector } from "react-redux";
+import { filteredByActivities, getActivities } from "../../Actions";
 import styles from "./ActivityFilter.module.css"
 
 
-export default function ActivityFilter(){
+export default function ActivityFilter({currentPage, setCurrentPage}){
 
-    const [activities, setActivities] = useState()
+    const activities = useSelector((state) => state.activities);
     const dispatch = useDispatch();
-    
-
-    useEffect(()=>{
-        axios.get("http://localhost:3001/activities")
-        .then((resp) => {
-            setActivities(resp.data)
-        })
-        
-    },[])
-
     
     function handleSelect(e){    
         if(e.target.value !== "-"){
-            dispatch(filteredByActivities(e.target.value))
-        }
-          
+            dispatch(filteredByActivities(e.target.value));
+            setCurrentPage(1);
+        }          
     }   
 
     return (

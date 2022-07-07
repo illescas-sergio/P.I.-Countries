@@ -32,7 +32,7 @@
   font-size: 0.8em;
   color: #fafafa;
   padding: 8px;
-  border-left-width: medium;
+  
   display: inline-block;
  
   border: none;
@@ -48,4 +48,8 @@
 .bar {
   margin: 0 auto;
   width: 70%;
+}
+
+.link {
+  text-decoration: none;
 }

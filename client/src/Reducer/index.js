@@ -31,6 +31,13 @@ function rootReducer(state = inicialState, action) {
         ...state,
       };
 
+      case "GET_ACTIVITIES":
+        console.log('llego al reduceer')
+        return {
+          ...state,
+          activities: action.payload
+        };
+
     case "FILTER_BY_CONTINENT":
       const countriesAll = state.allCountries;
       const filteredCountries =

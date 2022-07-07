@@ -18,7 +18,7 @@ export default function Header(){
             <div className={styles.bar}>               
                 <ReloadAllCountries />
                 <SearchBar/>
-                <Link to={'/Add/Activity'}> <button className={styles.button}> Add Activity </button></Link>
+                <Link to={'/Add/Activity'} className={styles.link} > <button className={styles.button}> Add Activity </button></Link>
             </div>
 
         </div>

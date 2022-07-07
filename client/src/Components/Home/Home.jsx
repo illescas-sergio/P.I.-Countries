@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import {useDispatch, useSelector} from 'react-redux';
-import { getCountriesById } from "../../Actions";
+import { getActivities, getCountriesById } from "../../Actions";
 import Header from "../Header/Header.jsx";
 import Card from "../Card/Card.jsx";
 import Paginado from "../Paginado/Paginado.jsx";
@@ -9,25 +9,34 @@ import SortBy from "../SortBy/SortBy";
 import FilterByCont from "../FilterByCont/FilterByCont";
 import ActivityFilter from "../ActivityFilter/ActivityFilter.jsx";
 import styles from "./Home.module.css"
+import { useEffect } from "react";
 
 
-export default function Home(){
+export default function Home({currentPage, setCurrentPage}){
 
     const dispatch = useDispatch();
+
+    const act = useSelector((state) => state.activities)
     
     const allCountries = useSelector((state) => state.countries); 
     
     const [orden, setOrden] = useState('');
     const [numPop, setNumPop] = useState('');
 
-    const [continent, setContinent] = useState('');
-    
-    const [currentPage, setCurrentPage] = useState(1);
+    const [continent, setContinent] = useState('');    
+   
     const [countriesPerPage] = useState(10)
 
     const indexOfLastCountry = currentPage * countriesPerPage; // 10
     const indexOfFirstCountry = indexOfLastCountry - countriesPerPage //0
     const currentCountries = allCountries.slice(indexOfFirstCountry, indexOfLastCountry); 
+
+    console.log(act)
+
+    useEffect(() => {
+        dispatch(getActivities());
+        console.log('Soy Home')
+    }, [])
     
     function handleCountryById(e){
         e.preventDefault();
@@ -48,7 +57,7 @@ export default function Home(){
 
                 <FilterByCont continent={continent} setContinent={setContinent} currentPage={currentPage} setCurrentPage={setCurrentPage}/>
                                                        
-                <ActivityFilter />
+                <ActivityFilter currentPage={currentPage} setCurrentPage={setCurrentPage} />
                             
             </div>
 

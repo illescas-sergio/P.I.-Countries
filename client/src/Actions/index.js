@@ -50,9 +50,19 @@ export const getCountriesById = (id) => {
 export const postActivity = (payload) => {
   return async function () {
     const resp = await axios.post("http://localhost:3001/activity", payload);
-    console.log(resp);
     return resp;
   };
+};
+
+export const getActivities = () => {
+  return async function (dispatch) {
+    const resp = await axios.get("http://localhost:3001/activities");
+    console.log(resp.data)
+    return dispatch({
+      type: "GET_ACTIVITIES",
+      payload: resp.data
+    });
+  }
 };
 
 export const filteredByActivities = (payload) => {
