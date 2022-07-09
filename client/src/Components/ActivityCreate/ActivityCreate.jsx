@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom"; 
 import { useDispatch, useSelector } from "react-redux";
-import { postActivity } from "../../Actions";
+import { getCountries, postActivity } from "../../Actions";
 import styles from "./ActivityCreate.module.css"
 
 
@@ -70,6 +70,7 @@ export default function ActivityCreate(){
             duration: "",
             difficulty: ""
         })
+        
         alert('Activity Added!!');
            
     };
@@ -82,10 +83,14 @@ export default function ActivityCreate(){
         })
     };
 
+    function goHome(){
+        dispatch(getCountries())
+    }
+
     return(
         <div className={styles.divUbication}>
             <div className={styles.card} >
-                <Link to={'/Home'}> <button  className={styles.button}> HOME </button> </Link>
+                <Link to={'/Home'}> <button onClick={goHome} className={styles.button}> HOME </button> </Link>
 
                 <h2 className={styles.text}>Add Activity</h2>
 

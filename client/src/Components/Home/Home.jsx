@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import {useDispatch, useSelector} from 'react-redux';
-import { getCountries, getActivities, getCountriesById } from "../../Actions";
+import { getActivities, getCountriesById } from "../../Actions";
 import Header from "../Header/Header.jsx";
 import Card from "../Card/Card.jsx";
 import Paginado from "../Paginado/Paginado.jsx";
@@ -33,7 +33,6 @@ export default function Home({currentPage, setCurrentPage}){
 
     useEffect(() => {
         dispatch(getActivities());
-        dispatch(getCountries());
     }, [dispatch]);
     
     function handleCountryById(e){
