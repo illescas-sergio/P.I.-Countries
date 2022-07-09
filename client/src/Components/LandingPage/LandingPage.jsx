@@ -18,20 +18,10 @@ export default function LandingPage(){
 
     return(
         <div  className={style.divL}>
-            
                 <div className={style.welcome}>
-                    
                     <h1  >Countries-App</h1>
-                
-                    
-                        <Link className={style.link} to = '/Home'>
-                            <button className={style.button}>Go!</button>
-                        </Link>
-                   
-
+                    <button className={style.button}><Link className={style.link} to = '/Home'>Go!</Link></button>   
                 </div>
-
-           
         </div>
         
     )

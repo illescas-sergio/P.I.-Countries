@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import {useDispatch, useSelector} from 'react-redux';
-import { getActivities, getCountriesById } from "../../Actions";
+import { getCountries, getActivities, getCountriesById } from "../../Actions";
 import Header from "../Header/Header.jsx";
 import Card from "../Card/Card.jsx";
 import Paginado from "../Paginado/Paginado.jsx";
@@ -16,7 +16,7 @@ export default function Home({currentPage, setCurrentPage}){
 
     const dispatch = useDispatch();
 
-    const act = useSelector((state) => state.activities)
+    const countriesActivities = useSelector((state) => state.activities)
     
     const allCountries = useSelector((state) => state.countries); 
     
@@ -31,17 +31,14 @@ export default function Home({currentPage, setCurrentPage}){
     const indexOfFirstCountry = indexOfLastCountry - countriesPerPage //0
     const currentCountries = allCountries.slice(indexOfFirstCountry, indexOfLastCountry); 
 
-    console.log(act)
-
     useEffect(() => {
         dispatch(getActivities());
-        console.log('Soy Home')
-    }, [])
+        dispatch(getCountries());
+    }, [dispatch]);
     
     function handleCountryById(e){
         e.preventDefault();
         dispatch(getCountriesById(e.target.value))
-        console.log(e.target.value)
     }
 
     return(
@@ -57,7 +54,7 @@ export default function Home({currentPage, setCurrentPage}){
 
                 <FilterByCont continent={continent} setContinent={setContinent} currentPage={currentPage} setCurrentPage={setCurrentPage}/>
                                                        
-                <ActivityFilter currentPage={currentPage} setCurrentPage={setCurrentPage} />
+                <ActivityFilter countriesActivities={countriesActivities} currentPage={currentPage} setCurrentPage={setCurrentPage} />
                             
             </div>
 

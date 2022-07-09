@@ -57,7 +57,6 @@ export const postActivity = (payload) => {
 export const getActivities = () => {
   return async function (dispatch) {
     const resp = await axios.get("http://localhost:3001/activities");
-    console.log(resp.data)
     return dispatch({
       type: "GET_ACTIVITIES",
       payload: resp.data
@@ -66,9 +65,10 @@ export const getActivities = () => {
 };
 
 export const filteredByActivities = (payload) => {
+  
   return {
     type: "FILTER_BY_ACTIVITY",
-    payload: payload,
+    payload,
   };
 };
 

@@ -21,15 +21,15 @@ export default function ActivityCreate(){
 
     const dispatch = useDispatch();
     
-    const countries = useSelector((state) => state.countries);
-    const [errors, setErrors] = useState({})
+    const countries = useSelector((state) => state.allCountries);
+    const [errors, setErrors] = useState({});
     const [input, setInput] = useState({
         countryId: [],
         name: "",
         season: "",
         duration: "",
         difficulty: ""
-    })
+    });
     
     function handleChange(e){
         setInput({
@@ -40,7 +40,7 @@ export default function ActivityCreate(){
             ...input,
             [e.target.name] : e.target.value
         }))
-    }
+    };
     
     function handleCheck(e){
         if(e.target.checked){
@@ -49,7 +49,7 @@ export default function ActivityCreate(){
                 [e.target.name]: e.target.value, 
             })
         }
-    }
+    };
 
     function handleCountryId(e){
         setInput({
@@ -57,7 +57,7 @@ export default function ActivityCreate(){
             countryId: [...input.countryId, e.target.value]
         })
 
-    }
+    };
 
     
     function handleSubmit(e){
@@ -71,10 +71,8 @@ export default function ActivityCreate(){
             difficulty: ""
         })
         alert('Activity Added!!');
-        
-        
-        
-    }
+           
+    };
 
     function handleDelete(el){
         
@@ -82,9 +80,7 @@ export default function ActivityCreate(){
             ...input,
             countryId: input.countryId.filter( c => c !== el)
         })
-    }
-
-    
+    };
 
     return(
         <div className={styles.divUbication}>

@@ -32,7 +32,7 @@ function rootReducer(state = inicialState, action) {
       };
 
       case "GET_ACTIVITIES":
-        console.log('llego al reduceer')
+        
         return {
           ...state,
           activities: action.payload
@@ -51,17 +51,15 @@ function rootReducer(state = inicialState, action) {
       };
 
     case "FILTER_BY_ACTIVITY":
-      
-      const countries = state.allCountries;
-      
-      const filteredByActivities = countries.filter((el) =>
+      const activityCountries = state.allCountries;
+      const filteredByActivities = activityCountries.filter((el) =>
         el.activities
           .map((el) => {
             return el.name;
           })
           .includes(action.payload)
       );
-
+      
       return {
         ...state,
         countries: [...filteredByActivities],
